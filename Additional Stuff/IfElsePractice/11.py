@@ -13,7 +13,7 @@
 def main():
 
     seconds = float(input("Enter a number of seconds: "))
-    time = convert(seconds)
+    convert(seconds)
 
 def convert(num1):
     if num1 >= 60 and num1 < 3600:

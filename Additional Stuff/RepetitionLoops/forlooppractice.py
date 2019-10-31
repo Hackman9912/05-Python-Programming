@@ -20,7 +20,7 @@ def main():
     
     # display total
     print("The total is", total)
-    
+
 
 
 
