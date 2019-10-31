@@ -8,5 +8,5 @@ cols = int(input("How many columns? "))
 
 for row in range(rows):
     for column in range(cols):
-        print("*", end="*")
+        print("*", end"*")
     print()
