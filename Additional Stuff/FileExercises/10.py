@@ -12,6 +12,7 @@ if player_input == "1":
 
     number = int(input("Enter the number of players you need to enter a golf score for: "))
 
+    num_file = open('golf.txt', 'a')
     for i in range(1, number + 1):
         first_last = str(input("Enter the first and last name of the golfer: "))
 
@@ -19,14 +20,15 @@ if player_input == "1":
 
         player.append(first_last)
         score.append(total_score)
+        players = str(player[i])
+        scores = str(score[i])
 
-    num_file = open('golf.txt', 'w')
 
-    # Get the amount of sales for each day and write it to the file
+        # Get the amount of sales for each day and write it to the file
 
-    write = str(player, score)
-    # write the sales amount to the file
-    num_file.write(write)
+        write = str(print("The player", player, "scored", score, "\n"))
+        # write the sales amount to the file
+        num_file.write("The player", player, "scored", score, "\n")
 
     # Close the file
     num_file.close()
