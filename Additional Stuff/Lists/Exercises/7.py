@@ -31,14 +31,17 @@ def main():
     for r in range(ROWS):
         for c in range(COLUMNS):
             values[r][c] = random.randint(0, 1)
+            print(values[r][c], end = " ")
 
+        print()
 # Print values for helping the solving
+    '''
     print(values[0:1], "\n",
         values[1:2], "\n",
         values[2:3], "\n",
         values[3:4], "\n",
         )
-
+    '''
     
     for count in values[0:1]:
         # print("Here is count 1", count)
