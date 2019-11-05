@@ -189,6 +189,7 @@ def main():
     print("The total is", get_total(numbers))
 
 
+
 # The get_total function accepts a list as an argument
 
 def get_total(value_list):

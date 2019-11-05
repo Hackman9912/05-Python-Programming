@@ -15,7 +15,9 @@ import random
 # Establish constants
 ROWS = 4
 COLUMNS = 4
-
+flatlist = []
+nameRow = "row"
+nameColumn = "column"
 # define main
 def main():
 
@@ -24,44 +26,93 @@ def main():
                 [0, 0, 0, 0],
                 [0, 0, 0, 0],
                 [0, 0, 0, 0]]
-    # Establish list for rows and columns
-    row = []
-    column = []
 
-    # establish stick and count to count 1s in rows and columns
-    count = 0
-    stick = 0
-
-    # Establish ticker and tic to keep track of the row
-    tic = 0
-    ticker = 0
     # Randomize the contents of values 
     for r in range(ROWS):
         for c in range(COLUMNS):
             values[r][c] = random.randint(0, 1)
 
 # Print values for helping the solving
-    print(values)
+    print(values[0:1], "\n",
+        values[1:2], "\n",
+        values[2:3], "\n",
+        values[3:4], "\n",
+        )
+
     
-# walk through the rows
-    for r in range(ROWS):
-        ticker += 1
-        if values[r] == 1:
-            count += 1
-        bigrows = values.index(r)
-        if ticker == 3:
-            row.append(count)
-            ticker = 0
-        for c in range(COLUMNS):
-            tic += 1
-            if value[c] == 1:
-                stick += 1
-            bigcolumns = values.index(c)
-            if tic == 3:
-                column.append(stick)
-                tic = 0
-    print(column)
-    print(row)
+    for count in values[0:1]:
+        # print("Here is count 1", count)
+        row1=sum(count)
+        # print(row1)
+    for count in values[1:2]:
+        # print("Here is count 2", count)
+        row2=sum(count)
+        # print(row2)
+    for count in values[2:3]:
+        # print("Here is count 3", count)
+        row3=sum(count)
+        # print(row3)
+    for count in values[3:4]:
+        # print("Here is count 4", count)
+        row4=sum(count)
+        # print(row4)
 
+    compare(nameRow, row1, row2, row3, row4)
 
+    
+    removeNesting(values)
+    # print("Here is flat list", flatlist)
+
+    column1 = sum(flatlist[::4])
+    # print("Column1", column1)
+    column2 = sum(flatlist[1::4])
+    # print('Column2', column2)
+    column3 = sum(flatlist[2::4])
+    # print('Column3', column3)
+    column4 = sum(flatlist[3::4])
+    # print('Column4', column4)
+
+    compare(nameColumn, column1, column2, column3, column4)
+def compare(name, num1, num2, num3, num4):
+    if num1 > num2 and num1 > num3 and num1 > num4:
+        print("The largest", name, "is", name, "1")
+    elif num2 > num1 and num2 > num3 and num2 >num4:
+        print("The largest", name, "is", name, "2")
+    elif num3 > num1 and num3 > num2 and num3 >num4:
+        print("The largest", name, "is", name, "2")
+    elif num4 > num1 and num4 > num2 and num4 >num3:
+        print("The largest", name, "is", name, "2")
+    elif num1 == num2 and num1 > num3 and num1 > num4:
+        print("The largest", name, "is 1 and 2")
+    elif num1 == num3 and num1 > num2 and num1 > num4:
+        print("The largest", name, "is 1 and 3")
+    elif num1 == num4 and num1 > num2 and num1 > num3:
+        print("The largest", name, "is 1 and 4")
+    elif num2 == num3 and num2 > num1 and num2 > num4:
+        print("The largest", name, " is 2 and 3")
+    elif num2 == num4 and num2 > num1 and num2 > num3:
+        print("The largest", name, "is 2 and 4")
+    elif num3 == num4 and num3 > num1 and num3 > num2:
+        print("The largest", name, "is 3 and 4")
+    elif num1 == num3 and num1 == num2 and num1 > num4:
+        print("The largest", name, "is 1, 2, and 3")
+    elif num1 == num2 and num1 == num4 and num1 > num3:
+        print("The largest", name, "is 1, 2, and 4")
+    elif num1 == num3 and num1 == num4 and num1 > num2:
+        print("The largest", name, "is 1, 3, and 4")
+    elif num2 == num3 and num2 == num4 and num2 > num1:
+        print("The largest", name, "is 2, 3, and 4")
+    elif num1 == num2 and num1 == num4 and num1 > num3:
+        print("The largest", name, "is 1, 2, and 4")
+    elif num1 == num2 and num1 == num3 and num1 == num4:
+        print("All the", name, "s are the same.")
+    else:
+        print("I quit.")
+
+def removeNesting(y):
+    for i in y:
+        if type(i) == list:
+            removeNesting(i)
+        else:
+            flatlist.append(i)
 main()
