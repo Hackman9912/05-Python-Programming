@@ -16,9 +16,11 @@ with open('frequency.txt', 'r') as f:
     for line in f:
         # split up each word
         for word in line.split():
+            # if the word is not in the dictionary then add it and set its value to 1
             if word not in word_frequency:
                 word_frequency[word] = 1
+            # If the word is in the dictionary then add to its value by 1
             else:
                 word_frequency[word] += 1
-
+# print the dictionary
 print(word_frequency)
