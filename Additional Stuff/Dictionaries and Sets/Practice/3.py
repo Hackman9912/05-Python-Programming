@@ -9,33 +9,37 @@ The program should open a specified text file, read its contents, and then use t
 write an encrypted version of the file’s contents to a second file. Each character in
 the second file should contain the code for the corresponding character in the first file.
 '''
+# define main
 def main():
+    # open the files to work with
     plain_file = open('plain.txt', 'r')
     encoded_file = open('encoded.txt', 'w')
+    # set the read line
     line = plain_file.readline()
-#    print(line)
+    # set dictionary of encryption keys
     encryption_code = {
         "a": '1', "b": '3', "c": '5',
-        "d": '7',"e": '9', "f": '11',
-        "g": '13', "h": '15', "i": '17',
-        "j": '19',"k": '21', "l": '23',
-        "m": '25', "n": '27', "o": '29',
-        "p": '31', "q": '33', "r": '35',
-        "s": '37', "t": '39', "u": '41',
-        "v": '43',"w": '45',"x": '47',
-        "y": '49', "z": '51'
+        "d": '7',"e": '9', "f": '/',
+        "g": '!', "h": '*', "i": '?',
+        "j": '@',"k": '(', "l": '>',
+        "m": '#', "n": ')', "o": '<',
+        "p": '$', "q": ';', "r": '+',
+        "s": '%', "t": ':', "u": '=',
+        "v": '^',"w": ',',"x" : '~',
+        "y": '&', "z": '.'," " : "`",
+        "." : 'g', "," : 'c', "!" : 'E',
+        "?" : 'q', "\n" : "\n"
     }
-    while line != "":
-        print(line)
+    # while line is true
+    while line:
+        # iterate through each letter as it is lowercased
         for x in line.lower():
-            print('x', x)
+            # see if letter is in the key
             if x in encryption_code:
-                code = encryption_code[x]
+                # if it is replace it and write it to the encrypted file
+                code = x.replace(x, encryption_code[x])
                 encoded_file.write(code)
-            else:
-                
-    line = plain_file.readline()
-
-
-
+        # look at the next line
+        line = plain_file.readline()
+# call main
 main()
