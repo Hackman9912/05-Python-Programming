@@ -15,7 +15,7 @@ def main():
     again = 'y'
 
     # Open a file for binary writing
-    output_file = open('information.dat', 'wb')
+    output_file = open('name_email.dat', 'wb')
 
     # get data until the user wants to stop
     while again.lower() =='y':
@@ -31,16 +31,16 @@ def main():
 # The save data function gets data about a person, stores it in a dictionary and then pickles the dictionary to the specified file
 def save_data(file):
     # create an empty dictionary
-    person = {}
+    name_email = {}
 
     # Get the data for a person and store it in a dictionary
     # person['name'] = input('Name: ')
     # person['age'] = input('age: ')
     # person['weight'] = float(input("weight: "))
 
-    person.update({'name' : input('Name: '), 'age' : input('age: '), 'weight' : float(input("weight: "))})
+    name_email.update({'name' : input('Name: '), 'email' : input('email: ')})
     # Pickle the dictionary
-    pickle.dump(person, file)
+    pickle.dump(name_email, file)
 
 # call main
 main()
