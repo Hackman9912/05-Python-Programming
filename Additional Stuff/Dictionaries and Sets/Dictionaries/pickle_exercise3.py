@@ -51,8 +51,12 @@ def first_display(user_choice):
 
 # define the menu
 def menu(user_choice, name_email):
-    # get user choice
-    user_choice = int(input("Enter choice: "))
+    try:
+        # get user choice
+        user_choice = int(input("Enter choice: "))
+    except ValueError:
+        print("Make a valid selection 0 to 5: ")
+        main()
     # make it so the selection must be 1 to 5
     while user_choice > 0 and user_choice < 6:
         # user chose 1 to search for an email
@@ -109,8 +113,12 @@ def menu(user_choice, name_email):
         else:
             print("oops")
             exit()
-        # ask the user for more input or to quit
-        user_choice = int(input("\n Press 0 to quit or make another selection from above: "))
+        try:
+            # ask the user for more input or to quit
+            user_choice = int(input("\n Press 0 to quit and save or make another selection from above: "))
+        except ValueError:
+            print("Make a choice 0 to 5: ")
+            main()
 # call main
 main()
 
