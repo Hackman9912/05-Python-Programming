@@ -23,12 +23,8 @@ user_choice = 5
 def main():
     # call the global variable
     global user_choice
-    try:
-        # Open output file
-        output_file = open('test1.dat', 'rb')
-    except:
-        output_file = open('test1.dat', 'wb+')
-        output_file.close()
+    # Open output file
+    output_file = open('name_email.dat', 'rb+')
     # set end of file to false so that it will try the things
     end_of_file = False
     # loop to open the pickle load
@@ -36,19 +32,14 @@ def main():
         # try to do the pickle load
         try:
             name_email = pickle.load(output_file)
-            print("Under try", name_email)
         # If it wont work then move on
-        except FileNotFoundError:
-            if name_email == False:
-                name_email = {}
+        except: 
             end_of_file = True
     # show the first display to get user choice
     first_display(user_choice)
     # send user choice to the dictionary to allow user to interact with dictionary
     menu(user_choice, name_email)
     # pickle the dictionary to the file
-    print("more data", name_email)
-    output_file = open('test.dat', 'wb')
     pickle.dump(name_email, output_file)
     # close the file
     output_file.close()
