@@ -1,48 +1,48 @@
 """
-Task:
-    Your task is to implement the Hangman game in Python.
+    Task:
+        Your task is to implement the Hangman game in Python.
 
-Program Specifications:
-    1) Output a brief description of the game of hangman and how to play
-    2) Ask the user to enter the word or phrase that will be guessed (have a friend enter the phrase 
-        for you if you want to be surprised)
-    3) Output the appropriate number of dashes and spaces to represent the phrase (make sure it’s clear 
-        how many letters are in each word and how many words there are)
-    4) Continuously read guesses of a letter from the user and fill in the corresponding blanks if the 
-        letter is in the word, otherwise report that the user has made an incorrect guess.
-    5) Each turn you will display the phrase as dashes but with any already guessed letters filled in, 
-        as well as which letters have been incorrectly guessed so far and how many guesses the user has remaining.
-    6) Your program should allow the user to make a total of k=6 guesses.
+    Program Specifications:
+        1) Output a brief description of the game of hangman and how to play
+        2) Ask the user to enter the word or phrase that will be guessed (have a friend enter the phrase 
+            for you if you want to be surprised)
+        3) Output the appropriate number of dashes and spaces to represent the phrase (make sure it’s clear 
+            how many letters are in each word and how many words there are)
+        4) Continuously read guesses of a letter from the user and fill in the corresponding blanks if the 
+            letter is in the word, otherwise report that the user has made an incorrect guess.
+        5) Each turn you will display the phrase as dashes but with any already guessed letters filled in, 
+            as well as which letters have been incorrectly guessed so far and how many guesses the user has remaining.
+        6) Your program should allow the user to make a total of k=6 guesses.
 
-Assignment Notes:
-    If the letter has already been guessed, output a message to the player and ask for input again.
-    If the guess entered is not an alphabetic letter, output a message and ask for input again.
+    Assignment Notes:
+        If the letter has already been guessed, output a message to the player and ask for input again.
+        If the guess entered is not an alphabetic letter, output a message and ask for input again.
 
-    If the letter is present in the word to be guessed, fill in the blanks appropriately with this particular letter. 
-    If the complete name has been guessed, the game is over  - player wins the game.  Output a message telling the 
-    player they have won and quit the game.
+        If the letter is present in the word to be guessed, fill in the blanks appropriately with this particular letter. 
+        If the complete name has been guessed, the game is over  - player wins the game.  Output a message telling the 
+        player they have won and quit the game.
 
-    If the letter/digit is not present in the word to be guessed, give a message to the player indicating that the 
-    guess is incorrect and remaining number of chances is one less. If remaining number of chances is 0 (zero), 
-    the game is over  - player loses the game. Output a message that they have lost and what the correct word was.  Quit the game.
+        If the letter/digit is not present in the word to be guessed, give a message to the player indicating that the 
+        guess is incorrect and remaining number of chances is one less. If remaining number of chances is 0 (zero), 
+        the game is over  - player loses the game. Output a message that they have lost and what the correct word was.  Quit the game.
 
-Bonus:
-    You can do one or both of the following:
+    Bonus:
+        You can do one or both of the following:
 
-    1) Using a file:
-    Instead of asking for user input for the word, make a word bank in a file named hangman_words.txt. 
-    Read in the contents of the file and choose a word at random.
+        1) Using a file:
+        Instead of asking for user input for the word, make a word bank in a file named hangman_words.txt. 
+        Read in the contents of the file and choose a word at random.
 
-    2) Forever alone option:
-    You enter the word (or it is randomly chosen from the word bank) and have the computer try to guess the letters.
+        2) Forever alone option:
+        You enter the word (or it is randomly chosen from the word bank) and have the computer try to guess the letters.
 
-    3) Add some more functionality: 
-        - Persist user profiles with scores
-        - Prompt for which user is playing
-        - Ask if the user wants to play a set of games
-        - Build a leader board
-        
-    Have fun, get creative, and demonstrate what you've come up with.
+        3) Add some more functionality: 
+            - Persist user profiles with scores
+            - Prompt for which user is playing
+            - Ask if the user wants to play a set of games
+            - Build a leader board
+            
+        Have fun, get creative, and demonstrate what you've come up with.
 """
 # import the important things
 import sys
@@ -69,11 +69,9 @@ def main():
     how_to_play()
     # load the dictionary from the file
     hangman_dict = pickle.load(open('hangmandict.dat', 'rb'))
-    print("Here is the hangman", hangman_dict)
     # call the function to allow the user to add a word or phrase to the list to possibly be able to use it this game
     addword()
     # select the word
-    print(len(hangman_dict))
     selection = random.randint(1, len(hangman_dict))
     # make the selection a unique variable for reasons
     word = hangman_dict[selection]
