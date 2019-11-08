@@ -44,11 +44,12 @@ Bonus:
         
     Have fun, get creative, and demonstrate what you've come up with.
 """
-
+import sys
+import time
 import random
 
-hangman_dict = {1 : "word", 2 : "apple", 3 : "superb", 
-                4 : "python", 5 : "computer", 6 : "water bottle"
+hangman_dict = {1 : "word", 2 : "ceiling", 3 : "superb", 
+                4 : "python", 5 : "computer", 6 : "light"
     }
 correct_guess = []
 incorrect_guess = []
@@ -56,78 +57,80 @@ y = ""
 z = ""
 turn = 1
 complete = False
-board = ""
+answer = []
+board = []
+
 
 def main():
     global hangman_dict, y, turn, complete, board, incorrect_guess, correct_guess
     titlescreen()
     how_to_play()
     selection = random.randint(1, len(hangman_dict))
-    print(selection)
-    print(hangman_dict[selection])
+    # print(selection)
+    # print(hangman_dict[selection])
     word = hangman_dict[selection]
-    board = make_board(selection, hangman_dict)
+    make_board(selection, hangman_dict)
     while complete == False:
-        if board == word:
+        if board == answer:
             complete = True
             print("You won!")
-        elif len(incorrect_guess) > 6:
-            complete == True
+            print("The answer was ", word)
+        elif len(incorrect_guess) > 5:
             print("You lost!")
+            print("The answer was ", word)
+            exit()
         else:
+            print("Here is the board \n", "".join(board))
             guess = guessing()
-            right_wrong(word, guess)
-            print(correct_guess)
-            redraw(word)
+            right_wrong(guess)
     print("Game Over")
-
-
-
+def print_slow(txt):
+    # for every letter in whatever text
+    for letter in txt:
+        # makes it print like typing
+        sys.stdout.write(letter)
+        # make it print right
+        sys.stdout.flush()
+        # give the user some time to read
+        time.sleep(0.03)
 def titlescreen():
-    print("  ######################################")
-    print("  #                                    #")
-    print("  #             Hang Man               #")
-    print("  #                                    #")
-    print("  ######################################")
+    print_slow("  ######################################")
+    print_slow("\n  #                                    #")
+    print_slow("\n  #             Hang Man               #")
+    print_slow("\n  #                                    #")
+    print_slow("\n  ######################################")
 def how_to_play():
-    print("\n               How to play                 ")
-    print(" \n The program will randomly select a word and you \n must guess the word letter by letter.")
-    print("\n You are allowed to have 6 mistakes before you lose!\n \n")
+    print_slow("\n \n             How to play                 ")
+    print_slow(" \n The program will randomly select a word and \n you must guess the word letter by letter. You")
+    print_slow("\n are allowed to have 6 mistakes before you lose!\n \n")
 def make_board(selected, dictionary):
-    global y
+    global y, board, answer
     for x in dictionary[selected]:
         if x.isalpha() == True:
-            y += x.replace(x, "_ ")
-    return y
+            answer.append(x)
+    length = len(answer)
+    for i in range(0, length):
+        board.append('_ ')
+    # print("Here is the answer", "".join(answer))
+    print_slow("Get ready to go: \n")
+
 def print_board(board):
-    print("           Here is your board: \n           ", board, "\n")           
+    print("           Here is your board: \n           ", "".join(board), "\n")           
 def guessing():
-    selected = input(f"Enter your guess: ")
+    selected = input(f"\n \nEnter your guess: ")
     if selected.isalpha() == True:
-        print("good job")
+        print("keep going")
         return selected
     else:
         print("Enter a single letter a to z")
         guessing()
-def right_wrong(word, guess):
-    global hangman_dict, incorrect_guess, correct_guess
-    if guess in word:
-        correct_guess.append(guess)
+def right_wrong(guess):
+    global hangman_dict, incorrect_guess, answer, board
+    if guess in answer:
+        index = answer.index(guess)
+        board[index] = guess
     else:
         incorrect_guess.append(guess)
-def redraw(word):
-    global hangman_dict, correct_guess, board
-    board = ""
-    for x in word:
-        for y in correct_guess:
-            if y == x:
-                board += y + " "
-            elif y != x:
-                board += x.replace(x, "_ ")
-
-    print("redrawn board: ", board)
-
-
 
 main()
 
