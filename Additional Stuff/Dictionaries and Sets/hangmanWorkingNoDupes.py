@@ -50,7 +50,8 @@ import time
 import random
 
 # make the dictionaries
-hangman_dict = {1 : 'apple'
+hangman_dict = {1 : "word", 2 : "ceiling", 3 : "superb", 
+                4 : "python", 5 : "computer", 6 : "light"
     }
 # establish incorrect guess list
 incorrect_guess = []
@@ -105,7 +106,7 @@ def print_slow(txt):
         # make it print right
         sys.stdout.flush()
         # give the user some time to read
-        time.sleep(0.003)
+        time.sleep(0.03)
 # define the title screen to print beautifully
 def titlescreen():
     print_slow("  ######################################")
@@ -156,19 +157,13 @@ def right_wrong(guess):
     global hangman_dict, incorrect_guess, answer, board
     # see if the guess is in the answer
     if guess in answer:
-        indexing = dupes(guess)
-        print("Indexing for", guess, indexing)
-        for i in indexing:
-            # set the index to be whatever index was applicable
-            # index = answer.index(guess)
-            # add that to the board
-            board[i] = guess
-        # add it to the incorrect guess list
+        # set the index to be whatever index was applicable
+        index = answer.index(guess)
+        # add that to the board
+        board[index] = guess
+    # add it to the incorrect guess list
     else:
         incorrect_guess.append(guess)
-def dupes(item):
-    global answer, board
-    return [i for i, x in enumerate(answer) if x == item]
 # call main
 main()
 

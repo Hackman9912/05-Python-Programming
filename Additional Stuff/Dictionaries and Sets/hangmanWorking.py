@@ -50,7 +50,8 @@ import time
 import random
 
 # make the dictionaries
-hangman_dict = {1 : 'apple'
+hangman_dict = {1 : 'Purple People Eater!', 2 : 'purple', 3 : 'mouse',
+                4 : 'python', 5 : 'computer', 6 : 'Air Force', 7 : 'All-Star'
     }
 # establish incorrect guess list
 incorrect_guess = []
@@ -68,6 +69,8 @@ def main():
     titlescreen()
     # call the rules
     how_to_play()
+    print(len(hangman_dict))
+    addword()
     # select the word
     selection = random.randint(1, len(hangman_dict))
     # make the selection a unique variable for reasons
@@ -105,7 +108,7 @@ def print_slow(txt):
         # make it print right
         sys.stdout.flush()
         # give the user some time to read
-        time.sleep(0.003)
+        time.sleep(0.0003)
 # define the title screen to print beautifully
 def titlescreen():
     print_slow("  ######################################")
@@ -118,6 +121,25 @@ def how_to_play():
     print_slow("\n \n             How to play                 ")
     print_slow(" \n The program will randomly select a word and \n you must guess the word letter by letter. You")
     print_slow("\n are allowed to have 6 mistakes before you lose!\n \n")
+# define the function for the user to add a word
+def addword():
+    # call glbal
+    global hangman_dict
+    # set the flag
+    x = 2
+    # tell the user to make a choice
+    print("To add a word or phrase to the word list press 1: ")
+    x = int(input("To continue on to the game press 2: "))
+    # if the user chooses 1 then let them add a word
+    if x == 1:
+        print("Enter the word or phrase to add to the hangman game")
+        y = len(hangman_dict) + 1
+        print(f"There are {y - 1:} words in the dictionary now!")
+        word = input("Enter your word or phrase here: ")
+        print(f"\n You entered:{word:} \n \n")
+        hangman_dict[y] = word
+        x == 2
+
 # defining the making of the board
 def make_board(selected, dictionary):
     # define our global variables
@@ -125,14 +147,18 @@ def make_board(selected, dictionary):
     # for every letter of the selected word
     for x in dictionary[selected]:
         # if the selection is a letter 
-        if x.isalpha() == True:
-            # add the selection to the list
-            answer.append(x)
+        answer.append(x.lower())
     # figure out the length of the list
     length = len(answer)
     # for the length of the list make underscores
     for i in range(0, length):
         board.append('_ ')
+    # if non alphabetic characters exist then just auto fill them in
+    for x in answer:
+        if x.isalpha() != True:
+            index = dupes(x)
+            for i in index:
+                board[i] = x
     # talk to the user
     print_slow("Get ready to go: \n")
 # a function to print the board
@@ -140,11 +166,11 @@ def print_board(board):
     print("           Here is your board: \n           ", "".join(board), "\n")           
 # define the funtion to make the guess
 def guessing():
+    global board, incorrect_guess
     # make their answer the guess
     selected = input(f"\n \nEnter your guess: ")
     # if they select a letter then return it
     if selected.isalpha() == True:
-        print("keep going")
         return selected
     # if they do not select a letter then make them select one
     else:
@@ -154,21 +180,27 @@ def guessing():
 def right_wrong(guess):
     # define global variables
     global hangman_dict, incorrect_guess, answer, board
+    if guess in board or guess in incorrect_guess:
+        print("You already tried that, try again!")
     # see if the guess is in the answer
-    if guess in answer:
+    elif guess in answer:
+        # call the dupes function
         indexing = dupes(guess)
-        print("Indexing for", guess, indexing)
+        # set the index to be whatever index was applicable
         for i in indexing:
-            # set the index to be whatever index was applicable
-            # index = answer.index(guess)
             # add that to the board
+            # board[i] = answer[i]
             board[i] = guess
-        # add it to the incorrect guess list
+    # add it to the incorrect guess list
     else:
         incorrect_guess.append(guess)
+        print(f"You {len(incorrect_guess):} incorrect guesses. You lose at 6. ")
+# define the function to handle duplicates
 def dupes(item):
+    # call globals
     global answer, board
-    return [i for i, x in enumerate(answer) if x == item]
+    # get the index of all the iterations of duplicate items in list
+    return [i for i, x in enumerate(answer) if x.lower() == item]
 # call main
 main()
 
