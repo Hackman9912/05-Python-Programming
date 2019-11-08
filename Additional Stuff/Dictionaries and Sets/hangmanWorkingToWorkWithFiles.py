@@ -167,11 +167,14 @@ def make_board(selected, dictionary):
                 board[i] = x
     # talk to the user
     print_slow("Get ready to go: \n")
+    time.sleep(1)
+    cls()
 # define the function to print the man hanging as you lose
 def hungman():
     global incorrect_guess
     lengthI = len(incorrect_guess)
     if lengthI == 1:
+        cls()
         print("        _________________ ")
         print("       / ________________|")
         print("      / /         |       ")
@@ -187,7 +190,9 @@ def hungman():
         print("     | |                      | |")
         print("     | |                      | |")
         print("####################################################################")
+        
     elif lengthI == 2:
+        cls()
         print("        _________________ ")
         print("       / ________________|")
         print("      / /         |       ")
@@ -205,6 +210,7 @@ def hungman():
         print("####################################################################")
 
     elif lengthI == 3:
+        cls()
         print("        _________________ ")
         print("       / ________________|")
         print("      / /         |       ")
@@ -221,6 +227,7 @@ def hungman():
         print("     | |                      | |")
         print("####################################################################")
     elif lengthI == 4:
+        cls()
         print("        _________________ ")
         print("       / ________________|")
         print("      / /         |       ")
@@ -237,6 +244,7 @@ def hungman():
         print("     | |                      | |")
         print("####################################################################")
     elif lengthI == 5:
+        cls()
         print("        _________________ ")
         print("       / ________________|")
         print("      / /         |       ")
@@ -253,6 +261,7 @@ def hungman():
         print("     | |                      | |")
         print("####################################################################")
     elif lengthI == 6:
+        cls()
         print("        _________________ ")
         print("       / ________________|")
         print("      / /         |       ")
@@ -311,5 +320,7 @@ def dupes(item):
     global answer, board
     # get the index of all the iterations of duplicate items in list
     return [i for i, x in enumerate(answer) if x.lower() == item]
+def cls():
+    print("\n" * 100)
 # call main
 main()
