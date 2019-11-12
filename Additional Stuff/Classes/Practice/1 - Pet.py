@@ -46,7 +46,7 @@ def petlist():
         pet_list.append(pets)
     return pet_list
 
-def display_list(pet_list):
+def showpet(pet_list):
     if len(pet_list) > 0:
         print("\n" * 100)
         print("Here is the data you entered: ")
