@@ -1,5 +1,5 @@
 # This program tests the CellPhone Class
-import cellphone as cellphone
+import cellphone as c
 
 def main():
     # Get the phone data
