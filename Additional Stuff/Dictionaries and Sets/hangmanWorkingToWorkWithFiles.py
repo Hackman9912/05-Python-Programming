@@ -49,6 +49,8 @@ import sys
 import time
 import random
 import pickle
+# for making a smart computer
+from nltk.corpus import words
 # make the dictionaries
 hangman_dict = {}
 # establish incorrect guess list

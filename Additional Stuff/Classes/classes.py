@@ -5,3 +5,6 @@
 
 # self parameter is required in every class and function definition
 
+# Unified modeling language or UML is useful for mapping out classes and their interactions
+# can use draw.io there is a UML selection
+
