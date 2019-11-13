@@ -17,5 +17,29 @@
     of all the items he or she has selected for purchase, as well as the total price.
 """
 
-import RetailItem
+class CashRegister:
+    def __init__(self):
+        self.__lists = []
 
+    def purchase_item(self, desc, unit, price):
+        self.__lists.append({'name' : desc, 'amount' : unit, 'price' : price})
+
+    def get_total(self):
+        price_list = []
+        for index in range(len(self.__lists)):
+            for key in self.__lists[index]:
+                if key == 'price':
+                    price_list.append(self.__lists[index][key])
+        if sum(price_list) > 0:
+            return f'${sum(price_list):.2f}'
+        else:
+            return 0
+
+
+
+    def show_items(self):
+        return self.__lists
+    
+    def clear(self):
+        self.__lists = []
+        return self.__lists

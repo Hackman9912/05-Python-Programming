@@ -23,20 +23,19 @@ class RetailItem:
     def set_name(self, item_description):
         self.__item_description = item_description
     # define a function to set the needed data
-    def set_id_number(self, units__units):
+    def set_units(self, units__units):
         self.__units = units__units
     # define a function to set the needed data
-    def set_department(self, price):
+    def set_price(self, price):
         self.__price = price
-    def purchase_item(self, item_description, quantity, price): 
     # define a function to return the data
     def get_ItemDescription(self):
         return self.__item_description
     # define a function to return the data
-    def get_id_number(self):
+    def get_units(self):
         return self.__units
     # define a function to return the data
-    def get_department(self):
+    def get_price(self):
         return self.__price
     # define a function to return the data
     def __str__(self):
