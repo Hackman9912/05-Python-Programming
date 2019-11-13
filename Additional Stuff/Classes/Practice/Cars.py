@@ -37,13 +37,12 @@ class Cars:
         self.__make = make
     def set_model(self, model):
         self.__model = model
-    def accelerate(self, speed):
-        for i in range(5):
-            self.__speed += 5
-            print(speed)
-    def brake(self, speed):
+    def accelerate(self):
+        self.__speed += 5
+        return self.__speed
+    def brake(self):
         self.__speed -= 5
-
+        return self.__speed
     def get_speed(self):
         return self.__speed
 

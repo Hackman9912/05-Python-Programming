@@ -31,12 +31,15 @@ def main():
     model = input("Enter the model of the car: ")
     speed = 0
     car = Cars.Cars(year, make, model, speed)
-    print(speed)
-    car.accelerate(speed)
-    print("The speed is: ", speed)
-# slow_down(speed)
-
-
+    speed = car.get_speed()
+    
+    for i in range(5):
+        speed = car.accelerate()
+        print(f"Accelerating step {i + 1:} speed is {speed:}")
+    print('\n \n \n')
+    for i in range(5):
+        speed = car.brake()
+        print(f"Braking step {i + 1:} speed is {speed:}")
 
 main()
 
