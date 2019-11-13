@@ -7,15 +7,18 @@
     should hold your friends’ or family members’ information.
 
 """
+# import the important things
 import Pii
 
-
+# define main
 def main():
+    # set up each variable using a function
     me = est_claobj('you')
     friend = est_claobj('a friend')
     family = est_claobj('a family member')
+    # display the data entered
     print(me, friend, family)
-
+# define the function to get the data for whatever input
 def est_claobj(var1):
     name = input(f"Enter the following info for {var1:}. Name: ").title()
     address = input(f"Enter the following info for {name:}. Address: ")
@@ -24,5 +27,5 @@ def est_claobj(var1):
     return Pii.Pii(name, address, age, phone_number)
 
  
-    
+# call main
 main()

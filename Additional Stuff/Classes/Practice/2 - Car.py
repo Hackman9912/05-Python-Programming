@@ -22,25 +22,38 @@
     the current speed of the car and display it.
 
 """
-
+# import the import-ant things
 import Cars
-
+import time
+# define main
 def main():
+    # establish the variables
     year = int(input("Enter the year of the car: "))
     make = input("Enter the make of the car: ")
     model = input("Enter the model of the car: ")
     speed = 0
+    # set the things to the class
     car = Cars.Cars(year, make, model, speed)
+    # get the speed we set for reasons
     speed = car.get_speed()
-    
+    # loop to accelerate
     for i in range(5):
         speed = car.accelerate()
         print(f"Accelerating step {i + 1:} speed is {speed:}")
-    print('\n \n \n')
+        # simulate realism
+        time.sleep(.5)
+    print()
+    # so fast
+    print(f"You are moving at a blistering {speed:} of probably KPH")
+    # traveling so far
+    time.sleep(2)
+    print('\n')
+    # loop to brake
     for i in range(5):
         speed = car.brake()
         print(f"Braking step {i + 1:} speed is {speed:}")
-
+        time.sleep(1)
+# call main
 main()
 
 

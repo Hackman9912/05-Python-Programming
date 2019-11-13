@@ -22,35 +22,40 @@
     the current speed of the car and display it.
 
 """
-
+# define the class of cars
 class Cars:
-
+    # define the init with all the variables
     def __init__(self, year, make, model, speed):
         self.__year = year
         self.__make = make
         self.__model = model
         self.__speed = speed
-
+    # def setting the year of the car
     def set_year(self, year):
         self.__year = year
+    # def function to set the make of the car
     def set_make(self, make):
         self.__make = make
+    # def function to set the model of the car
     def set_model(self, model):
         self.__model = model
+    # def function to accelerate
     def accelerate(self):
         self.__speed += 5
         return self.__speed
+    # def function to begin braking
     def brake(self):
         self.__speed -= 5
         return self.__speed
+    # define a function to get the speed
     def get_speed(self):
         return self.__speed
-
+    # return the year
     def get_year(self):
         return self.__year
-
+    # returns the make
     def get_make(self):
         return self.__make
-
+    # return the model
     def get_model(self):
         return self.__model
