@@ -20,6 +20,7 @@
 import pickle
 import os
 import employee
+import pprint
 
 blank_dict = {}
 def main():
@@ -67,11 +68,13 @@ def take_action(var1, dict_1):
     elif var1 == 1:
         lookup = int(input("Enter the employee ID of the person you want to look up if you don't know it type 0: "))
         if lookup == 0:
-            print(dict_1)
+            pprint.pprint(dict_1, sort_dicts = False)
         elif lookup in dict_1:
             print(dict_1[lookup])
         else:
             print("There was an issue: ")
+    else:
+        exit()
 def read_or_new_pickle(path, default):
     if os.path.isfile(path):
         with open(path, 'rb') as f:

@@ -31,7 +31,7 @@ class Trivia:
         self.__question_list[question] = [answer1, answer2, answer3, correct]
 
     def bulk_add(self, dict1):
-        print("Make a dictionary in the format of dict = \{Question : [Answer1, Answer2, Answer3, CorrectAnswer], Question : .... etc}")
+        print("Make a dictionary in the format of dict = {Question : [Answer1, Answer2, Answer3, CorrectAnswer], Question : .... etc}")
         self.__question_list = dict1
 
     def get_questions(self):
