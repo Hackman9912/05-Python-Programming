@@ -23,21 +23,18 @@ def main():
 def setthelist(theamount):
     global pppl_lst, cust_lst
     for i in range(theamount):
+        print("Person", i+1)
         customerinput = int(input('Is this person a customer? 1 for yes 0 for no: '))
         if customerinput == 1:
             name = input('Enter the persons name: ')
             address = input('Enter the address: ')
             phone = input('Enter the phone number for the person: ')
             cust_num = int(input('Enter the customer number: '))
-            mail = bool(input('Does the customer want to be on the mailing list? 1 = yes 0 = no: '))
-            # if mail == 1:
-            #     mail = True
-            # elif mail == 0:
-            #     mail = False
-            # else:
-            #     print("Mail needs to be 1 or 0: ")
-            #     exit()
-            customer = assets.Customer(name, address, phone, cust_num, mail)
+            mail = 2
+            while mail != 0 and mail != 1:
+                mail = int(input('Does the customer want to be on the mailing list? 1 = yes 0 = no: '))
+            print('mail', mail)
+            customer = assets.Customer(name, address, phone, cust_num, bool(mail))
             cust_lst.append(customer)
         elif customerinput == 0:
             name = input('Enter the persons name: ')
