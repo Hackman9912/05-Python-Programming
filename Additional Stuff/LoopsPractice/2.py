@@ -4,10 +4,16 @@
 
 def main():
 
-    min_cal = 3.9
+    cal = [(i * 3.9) for i in range(10, 31, 5)]
+    for x, y in enumerate(cal, 1):
+        print(f'You burned {x} calories in {y} minutes.')
+    
+    
+    # replaced with list comprehension and enumeration
+    # min_cal = 3.9
 
-    for i in range(10, 31, 5):
-        cal = i * min_cal
-        print(f"You burned {cal:.2f} calories " f"in {i:} minutes")
+    # for i in range(10, 31, 5):
+    #     cal = i * min_cal
+    #     print(f"You burned {cal:.2f} calories " f"in {i:} minutes")
 
 main()

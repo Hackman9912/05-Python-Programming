@@ -3,8 +3,8 @@
 # The formula for converting a temperature from Celsius toFahrenheit is
 # F = (9/5)C + 32 where F is the Fahrenheit temperature and C is the Celsius temperature. 
 # Your programmust use a loop to display the table.
+fahr = [((9/5) * cel + 32) for cel in range(21)]
+for x, y in enumerate(fahr):
+    print(f'{x:} celcius is {y:.2f} fahrenheit.')
 
-for cel in range(0, 21):
-    fahr = (9/5)* cel +32
-    print(f"{cel:} celcius is", f"{fahr:.2f} fahrenheit")
 

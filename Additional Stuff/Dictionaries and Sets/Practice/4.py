@@ -10,10 +10,10 @@ word_list = set()
 # open the file
 with open('unique.txt', 'r') as f:
     # iterate through the file
-    for line in f:
+    word_list = {word for word in line.split() for line in f}
         # split up each word
-        for word in line.split():
+#        for word in line.split():
             # add the word to the set
-            word_list.add(word)
+#            word_list.add(word)
 # display the set
 print(word_list)

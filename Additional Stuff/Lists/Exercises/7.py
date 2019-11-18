@@ -43,22 +43,14 @@ def main():
         )
     '''
     
-    for count in values[0:1]:
-        # print("Here is count 1", count)
-        row1=sum(count)
-        # print(row1)
-    for count in values[1:2]:
-        # print("Here is count 2", count)
-        row2=sum(count)
-        # print(row2)
-    for count in values[2:3]:
-        # print("Here is count 3", count)
-        row3=sum(count)
-        # print(row3)
-    for count in values[3:4]:
-        # print("Here is count 4", count)
-        row4=sum(count)
-        # print(row4)
+    row1 = [sum(count) for count in values[0:1]]
+
+    row2 = [sum(count) for count in values[1:2]]
+
+    row3 = [sum(count) for count in values[2:3]]
+
+    row4 = [sum(count) for count in values[3:4]]
+
 
     compare(nameRow, row1, row2, row3, row4)
 

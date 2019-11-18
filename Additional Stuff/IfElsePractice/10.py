@@ -12,6 +12,7 @@
 # overweight.
 
 def main():
+    bmi_calc = lambda x, y : x*703/(y**2)
     weight = int(input("Enter your weight in pounds: "))
     height = int(input("Enter your height in inches: "))
     bmi = bmi_calc(weight, height)
@@ -22,8 +23,8 @@ def main():
     else:
         print(f"Your BMI is {bmi:.2f} which is over weight. So, your are fat. Hit the gym. Fatty")
 
-
-def bmi_calc(num1, num2):
-    return num1*703 / (num2**2)
+# replaced with lambda
+# def bmi_calc(num1, num2):
+#     return num1*703 / (num2**2)
 
 main()

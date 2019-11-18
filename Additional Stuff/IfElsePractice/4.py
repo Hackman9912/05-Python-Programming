@@ -10,7 +10,9 @@ month = int(input("Enter a month in numeric form, ie June is 06: "))
 day = int(input("Enter the numeric day: "))
 year = int(input("Enter the two digit year, ie 1960 is 60: "))
 
-if month*day == year:
-    print("The date you entered is magic!")
-else:
-    print("The date you entered is not magic")
+# if month*day == year:
+#     print("The date you entered is magic!")
+# else:
+#     print("The date you entered is not magic")
+# One line magick
+print("The date you entered is magic!") if month*day == year else print("The date you entered is not magic")

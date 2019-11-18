@@ -6,6 +6,7 @@
 # • The amount of state sales tax
 # • The total sales tax (county plus state)
 def main():
+    tax = lambda x, y : x * y
     total_sales = float(input("Enter the total sales for the month: "))
     county_tax = tax(.02, total_sales)
     state_tax = tax(.04, total_sales)
@@ -15,7 +16,8 @@ def main():
         f"Your State Tax is: {state_tax:.2f}", "\n"
         f"Your Total Tax is: {total:.2f}"
         )
-def tax(num1, num2):
-    return num1 * num2
+# replaced this with lambda above
+# def tax(num1, num2):
+#     return num1 * num2
 
 main()

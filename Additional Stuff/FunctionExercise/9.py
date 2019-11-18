@@ -9,7 +9,7 @@
 # • The total cost of the paint job
 
 def main():
-    global paint_total, gallons
+    paint = lambda x : x/115
     sq_ft = float(input("Enter the number of square feet you need painted: "))
     paint_cost = float(input("Enter the cost of a gallon of the paint you would like to use: "))
     gallons = paint(sq_ft)
@@ -22,8 +22,9 @@ def main():
         f"Your total cost is: {total:.2f}"
         )
 
-def paint(num1):
-    return num1/115
+# function replaced with lambda above
+# def paint(num1):
+#     return num1/115
 
 
 
