@@ -10,7 +10,7 @@ def main():
 
     pennies = 1
 
-    for i in range(1, days):
+    for _ in range(1, days):
         pennies = pennies * 2
 
     if pennies < 100:
