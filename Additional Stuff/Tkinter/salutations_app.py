@@ -5,6 +5,7 @@ import random
 window = tk.Tk()
 window.title('Salutations')
 window.geometry('400x400')
+window.configure(background = 'dim gray')
 
 # Functions
 def phrase_generator():
