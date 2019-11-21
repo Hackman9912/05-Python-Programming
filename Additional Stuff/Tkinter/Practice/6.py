@@ -23,6 +23,7 @@ def checkout():
     label10 = tk.Label(wraplength = 60, text = f'Here is your total ${total:.2f}')
     label10.grid(column = 3, row = 10)
 
+
 # Labels
 label1 = tk.Label(text = 'Joes Automotive')
 label1.grid(column = 0, row = 0)
