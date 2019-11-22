@@ -16,3 +16,16 @@ the string. Your function should take a string like this <type
 are implementing the value that is stored in the __name__
 attribute for classes and some built-in types.
 """
+import re
+type1 = '''<type 'int'>
+<type 'float'>
+<type 'builtin_function_or_method'>
+'''
+stuff = re.findall(r"'(.*?)'", type1)
+for match in stuff:
+    print(match)
+
+# pattern = re.compile(r"(['])([a-zA-Z_]+)(['])") 
+# matches = pattern.finditer(type1)
+# for match in matches:
+#     print(match.group(2))
