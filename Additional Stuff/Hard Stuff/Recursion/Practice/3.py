@@ -12,6 +12,7 @@ def stuff():
     y = 1
     ast = int(input('Enter the number of asterisk and lines that you want to see: '))
     # pass to function
+    printLines(ast)
     lines(ast, list, y)
 # define lines
 def lines(x, list, y):
@@ -22,6 +23,14 @@ def lines(x, list, y):
     else:
         list.append('*' * y)
         return lines(x - 1, list, y + 1)
+################################ ALTERNATE ############################
+# Alternate method
+def printLines(n):
+    if n > 1:
+        printLines(n - 1)
+    for _ in range(n):
+        print ("*",end=""),
+    print()
 
 
 stuff()

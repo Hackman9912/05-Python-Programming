@@ -7,10 +7,8 @@
 def main():
     # Establish the list and variables
     list1 = [100,25,63,99,85]
-    count = 0
-    sum = 0
     # pass all to the function
-    largest(list1, count, sum)
+    largest(list1, 0, 0)
 # define the largest function
 def largest(x, y, sum):
     # if y is the same as the length of the list then print the sum
@@ -22,3 +20,14 @@ def largest(x, y, sum):
         return largest(x, y + 1, sum + x[y])
 
 main()
+
+# 5.
+# numList = [3,4,5,6]
+# def sum_nums(numlist):
+#     n = len(numlist)
+#     if len(numlist) == 1:
+#         return numlist[0]
+#     else:
+#         return numlist[n-1] + sum_nums(numlist[0:n-1])
+
+# print(sum_nums(numList))

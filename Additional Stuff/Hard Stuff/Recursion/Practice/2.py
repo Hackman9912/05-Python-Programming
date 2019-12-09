@@ -7,24 +7,25 @@
     (To keep the function simple, assume that x and y will always hold positive nonzero
     integers.)
 """
+
 # define the main function
 def main():
     # get our values
     val1 = int(input('Enter the first value to be multiplied: '))
     val2 = int(input('Enter the second value to be multiplied: '))
-    sum = 0
     # pass the values to the function
-    mult(val1, val2, sum)
+    print(mult(val1, val2))
 
 # define mult()
-def mult(x, y, sum):
-    # if y is 0 just print the sum, which is 0
-    if y == 0:
-        print(sum)
-    # if not then push it all back into the funtion but take 1 from y and add x to the sum
+def mult(x, y):
+    # if y or x is 0 just print the sum, which is 0
+    if x == 0 or y == 0:
+        return 0
+    # if not then recursively pass x + and then the function
     else:
-        return mult(x, y-1, sum + x)
+        return x + mult(x, y - 1)
 # call main
 main()
+
 
 

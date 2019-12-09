@@ -7,10 +7,8 @@
 def main():
     # Establish the list and variables
     list1 = [100,225,63,31529,99,85]
-    count = 0
-    big = 0
     # pass all to the function
-    largest(list1, count, big)
+    largest(list1, 0, 0)
 # define the largest function
 def largest(x, y, big):
     # if y is the same as the length of the list then print the value of big
@@ -25,3 +23,19 @@ def largest(x, y, big):
         return largest(x, y + 1, big)
 
 main()
+
+
+
+# 4.
+# numList = [3,8,5,6]
+# def findLargest(numlist):
+#     n = len(numlist)
+#     if n == 1:
+#         return numlist[0]
+#     else:
+#         temp = findLargest(numlist[0:n-1])
+#         if numlist[n-1]> temp:
+#             return numlist[n-1]
+#         else:
+#             return temp
+# print(findLargest(numList))
