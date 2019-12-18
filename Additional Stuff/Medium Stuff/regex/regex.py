@@ -31,7 +31,7 @@ Mr. T
 pattern = re.compile(r'1234')
 
 # match()
-# determines if the regex matches at the beginning of the string. Returns none if its not at beginning, sam as ^ anchor
+# determines if the regex matches at the beginning of the string. Returns none if its not at beginning, same as ^ anchor
 match = pattern.match(text_to_match)
 print(match)
 

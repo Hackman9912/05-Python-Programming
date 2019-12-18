@@ -4,7 +4,6 @@
 #                       Move immediately to the last node
 
 '''
-
     1. Finish out your doubly and circular linked list to add more functionality
         - prepend
         - insert
